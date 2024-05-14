@@ -13,9 +13,18 @@
 @code {
     List<GridCell> gridCells = new();
 
-    protected override void OnInitialized()
+    bool shouldRender = false;
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
     {
-        RefreshGrid();
+        if(firstRender)
+        {
+            RefreshGrid();
+            shouldRender = true;
+        }
+
+        return Task.CompletedTask;
     }
 
     protected void RefreshGrid()
