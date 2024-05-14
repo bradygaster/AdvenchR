@@ -1,0 +1,38 @@
+﻿/* GridComponent.razor.css */
+
+.grid-container {
+    display: grid;
+    grid-gap: 0px; /* Adjust gap between cells as needed */
+}
+
+.grid-cell {
+    width: 100%;
+    height: 20px; /* Adjust cell height as needed */
+    border: none;
+}
+
+.terrain-water {
+    background-color: dodgerblue;
+}
+
+.terrain-desert {
+    background-color: khaki;
+}
+
+.terrain-castle {
+    background-color: gray;
+}
+
+.terrain-wasteland {
+    background-color: black;
+}
+
+.terrain-mountain {
+    background-color: saddlebrown;
+}
+
+.terrain-forest {
+    background-color: forestgreen;
+}
+
+/* Define styles for other terrain types */

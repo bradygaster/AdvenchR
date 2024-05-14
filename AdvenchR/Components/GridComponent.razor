@@ -1,0 +1,25 @@
+﻿@inject IGridService GridService
+@rendermode InteractiveServer
+
+<div class="grid-container" style="grid-template-columns: repeat(32, 20px);">
+    @foreach (var cell in GridService.GetGrid(32, 32))
+    {
+        <div class="@($"terrain-{cell.TerrainType.ToLower()} grid-cell")"></div>
+    }
+</div>
+
+<button @onclick="RefreshGrid">Refresh</button>
+
+@code {
+    List<GridCell> gridCells = new();
+
+    protected override void OnInitialized()
+    {
+        RefreshGrid();
+    }
+
+    protected void RefreshGrid()
+    {
+        gridCells = GridService.GetGrid(32, 32);
+    }
+}
